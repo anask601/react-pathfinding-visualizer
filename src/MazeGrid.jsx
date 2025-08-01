@@ -4,7 +4,11 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function MazeGrid() {
-  return <></>;
+  return (
+    <>
+      <div className={"cell"}></div>
+    </>
+  );
 }
 
 export default MazeGrid;
