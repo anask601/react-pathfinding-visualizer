@@ -11,9 +11,29 @@ function MazeGrid() {
     ["wall", "wall", "path", "path", "end"],
   ];
 
+  function generateMaze(height, width) {
+    let maztrix = [];
+    for (let i = 0; i < height; i++) {
+      let row = [];
+      for (let j = 0; j < width; j++) {
+        let cell = Math.random();
+        if (cell < 0.5) {
+          row.push("wall");
+        } else {
+          row.push("path");
+        }
+      }
+      maztrix.push(row);
+    }
+    console.log(maztrix);
+    console.log("Maze generated!");
+  }
+
   return (
     <div className="maze-grid">
-      <button className="maze-button">maze</button>
+      <button className="maze-button" onClick={() => generateMaze(5, 6)}>
+        Refresh Maze
+      </button>
       <div className={"maze"}>
         {maze.map((row, rowIndex) => (
           <div className="row">
