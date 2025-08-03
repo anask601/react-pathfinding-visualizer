@@ -12,9 +12,13 @@ function MazeGrid() {
   ];
   return (
     <>
-      <div className="row">
-        <div className={"cell"}></div>
-      </div>
+      {maze.map((row, rowIndex) => (
+        <div className="row">
+          {row.map((cell, cellIndex) => (
+            <div className={`cell ${cell}`}></div>
+          ))}
+        </div>
+      ))}
     </>
   );
 }
