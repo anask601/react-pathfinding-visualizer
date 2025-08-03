@@ -4,15 +4,17 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function MazeGrid() {
-  let maze = [
+  let initialMaze = [
     ["wall", "wall", "wall", "wall", "wall"],
     ["start", "path", "path", "wall", "wall"],
     ["wall", "path", "path", "wall", "wall"],
     ["wall", "wall", "path", "path", "end"],
   ];
 
+  const [maze, setMaze] = useState(initialMaze);
+
   function generateMaze(height, width) {
-    let maztrix = [];
+    let matrix = [];
     for (let i = 0; i < height; i++) {
       let row = [];
       for (let j = 0; j < width; j++) {
@@ -23,9 +25,12 @@ function MazeGrid() {
           row.push("path");
         }
       }
-      maztrix.push(row);
+      matrix.push(row);
     }
-    console.log(maztrix);
+    matrix[1][0] = "start";
+    matrix[height - 2][width - 1] = "end";
+    setMaze(matrix);
+    console.log(matrix);
     console.log("Maze generated!");
   }
 
